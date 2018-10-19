@@ -10,10 +10,11 @@ ImageUploader
 2.when using env variables from .env run program to node bin/dev
 
 #required
-1. Do not forget to configure your .env variables in your project folder or in case of an ec2 instance in .bashrc whatever pleases you.
+1. Do not forget to configure your .env variables in your project folder or
+in case of an ec2 instance in .bashrc whatever pleases you.
 2. log in to your aws cli and provide credentials
-3. do not forget to create your s3 bucket
-4. install gm with :
+3. create your s3 bucket
+4. install gm on your ec2 instance with :
 
 `
 sudo add-apt-repository ppa:dhor/myway
