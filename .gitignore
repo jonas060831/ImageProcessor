@@ -1,0 +1,5 @@
+#do not include
+.env
+node_modules
+package.json
+.README.md
