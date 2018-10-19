@@ -5,7 +5,7 @@ ImageUploader
 3. delete single image
 4. multiple image upload
 
-#note:
+#note
 1.when using env variables from .bashrc you can directly run node app.js
 2.when using env variables from .env run program to node bin/dev
 
