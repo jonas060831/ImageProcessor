@@ -42,17 +42,27 @@ app.post('/upload-image', function(req, res){
     //getting the last period of the file type to lower case this will be the new filename pop the .fileExt from the name
     var newfilename = uniqueString() + '.'+ unixTime(new Date()) + '.'+ uniqueString() + '.' + filename.pop().toLowerCase();
 
-    s3.putObject(req.files.singleImage.data, process.env.MY_S3_BUCKET , newfilename)
-        .then(() => {
-          //hardcode value
-          console.log('image successfully uploaded');
-          var imageURL = process.env.MY_S3_URL + newfilename;
-          res.status(200).send(imageURL);
-        })
-        .catch(() => {
-          console.log('there was an error while uploading the image');
-          res.status(410).send('there was an error while uploading the image');
-        })
+    gm(req.files.singleImage.data)
+    .resize(400,400)
+    .toBuffer((err, data) => {
+      if (err){
+        console.log('some error');
+      } else {
+        //req.files.singleImage.data
+        s3.putObject(data, process.env.MY_S3_BUCKET , newfilename)
+            .then(() => {
+              //hardcode value
+              console.log('image successfully uploaded');
+              var imageURL = process.env.MY_S3_URL + newfilename;
+              res.status(200).send(imageURL);
+            })
+            .catch(() => {
+              console.log('there was an error while uploading the image');
+              res.status(410).send('there was an error while uploading the image');
+            })
+      }
+    })
+
     }
 });
 
