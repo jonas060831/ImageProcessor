@@ -1,0 +1,25 @@
+{
+  "name": "imageuploader",
+  "version": "1.0.0",
+  "description": "ImageUploader",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "iAmJOnAs06",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.338.0",
+    "cors": "^2.8.4",
+    "downloads-folder": "^1.0.1",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.0.0",
+    "gm": "^1.23.1",
+    "shebang-command": "^1.2.0",
+    "unique-string": "^1.0.0",
+    "unix-time": "^1.0.1"
+  },
+  "devDependencies": {
+    "dotenv": "^6.1.0"
+  }
+}
