@@ -1,5 +1,5 @@
 <pre>
-<bold>ImageUploader</bold>
+ImageUploader
 
 1. single image upload
 2. delete single image
