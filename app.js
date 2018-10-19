@@ -70,11 +70,12 @@ app.post('/get-image', function(req, res) {
         gm(data.Body)
         .write(downloadsFolder() + '/' + req.body.getImage, function (err) {
 
-          if(err)
+          if(err){
             console.log(err);
-
-          console.log('image successfully downloaded on /Downloads');
-          res.status(200).send("image successfully downloaded on your Downloads folder");
+          } else {
+            console.log('image successfully downloaded on /Downloads');
+            res.status(200).send("image successfully downloaded on your Downloads folder");
+          }
         });
       })
       .catch(() => {
