@@ -14,7 +14,7 @@ app.options('*', cors());
 
 app.use(fileUpload()); //so we can use the parameter name
 
-//on this app we will create 4 routes uploading single,multiple image,download the image,delete the i
+//on this app we will create 3 routes uploading single & multiple image then image delete functionality
 const PORT = 3000;
 
 // process.env.TEST_STRING
@@ -42,16 +42,17 @@ app.post('/upload-image', function(req, res){
     //getting the last period of the file type to lower case this will be the new filename pop the .fileExt from the name
     var newfilename = uniqueString() + '.'+ unixTime(new Date()) + '.'+ uniqueString() + '.' + filename.pop().toLowerCase();
 
+    //use gm to optimize the image
     gm(req.files.singleImage.data)
-    .resize(400,400)
+    .resize(425,425)
     .toBuffer((err, data) => {
       if (err){
-        console.log('some error');
+        console.log(err);
       } else {
         //req.files.singleImage.data
         s3.putObject(data, process.env.MY_S3_BUCKET , newfilename)
             .then(() => {
-              //hardcode value
+              
               console.log('image successfully uploaded');
               var imageURL = process.env.MY_S3_URL + newfilename;
               res.status(200).send(imageURL);
