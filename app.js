@@ -56,6 +56,34 @@ app.post('/upload-image', function(req, res){
     }
 });
 
+// //Downloading the image
+// app.post('/get-image', function(req, res) {
+//
+//     if (!req.body){
+//       console.log('no image name is being provided.');
+//       res.status(400).send('no image name is being provided.');
+//     }else {
+//
+//       s3.getObject(process.env.MY_S3_BUCKET, req.body.getImage)
+//       .then((data) => {
+//         //get the bufer of the image located in the data.Body from s3.getObject write it using gm
+//         gm(data.Body)
+//         .write(downloadsFolder() + '/' + req.body.getImage, function (err) {
+//
+//           if(err){
+//             console.log(err);
+//           } else {
+//             console.log('image successfully downloaded on /Downloads');
+//             res.status(200).send("image successfully downloaded on your Downloads folder");
+//           }
+//         });
+//       })
+//       .catch(() => {
+//         console.log('there was an error while downloading the image POSSIBLE CAUSE: Image does not exist');
+//         res.status(400).send("there was an error while downloading the image POSSIBLE CAUSE: Image does not exist");
+//       })
+//     }
+//   });
 
 //Deleting the image
 app.post('/delete-image', function(req, res) {

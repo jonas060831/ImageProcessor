@@ -1,4 +1,5 @@
-ImageUploader
+<pre>
+<bold>ImageUploader</bold>
 
 1. single image upload
 2. delete single image
@@ -22,3 +23,4 @@ sudo apt-get install imagemagick
 
 `
 to install dep correctly
+</pre>
